@@ -1,118 +1,57 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
-
 import React from 'react';
-import type {PropsWithChildren} from 'react';
 import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  useColorScheme,
   View,
+  Text,
+  StatusBar,
+  ScrollView,
+  TouchableOpacity,
+  Image,
+  Linking,
 } from 'react-native';
+import styles from './styles/styles';
 
-import {
-  Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
-
-type SectionProps = PropsWithChildren<{
-  title: string;
-}>;
-
-function Section({children, title}: SectionProps): React.JSX.Element {
-  const isDarkMode = useColorScheme() === 'dark';
-  return (
-    <View style={styles.sectionContainer}>
-      <Text
-        style={[
-          styles.sectionTitle,
-          {
-            color: isDarkMode ? Colors.white : Colors.black,
-          },
-        ]}>
-        {title}
-      </Text>
-      <Text
-        style={[
-          styles.sectionDescription,
-          {
-            color: isDarkMode ? Colors.light : Colors.dark,
-          },
-        ]}>
-        {children}
-      </Text>
-    </View>
-  );
-}
-
-function App(): React.JSX.Element {
-  const isDarkMode = useColorScheme() === 'dark';
-
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
+const HomeScreen = () => {
+  const handlePlayButtonPress = () => {
+    Linking.openURL('https://www.youtube.com/watch?v=dn9_U-50U_E&t=62s');
   };
 
   return (
-    <SafeAreaView style={backgroundStyle}>
-      <StatusBar
-        barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-        backgroundColor={backgroundStyle.backgroundColor}
-      />
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}>
-        <Header />
-        <View
-          style={{
-            backgroundColor: isDarkMode ? Colors.black : Colors.white,
-          }}>
-          <Section title="Step One">
-            Edit <Text style={styles.highlight}>App.tsx</Text> to change this
-            screen and then come back to see your edits.
-          </Section>
-          <Section title="See Your Changes">
-            <ReloadInstructions />
-          </Section>
-          <Section title="Debug">
-            <DebugInstructions />
-          </Section>
-          <Section title="Learn More">
-            Read the docs to discover what to do next:
-          </Section>
-          <LearnMoreLinks />
+    <View style={styles.darkBackground}>
+      <StatusBar backgroundColor="#6a0080" barStyle="light-content" />
+
+      <ScrollView>
+        {/* Light Purple Background with Episode Description */}
+        <View style={styles.lightPurpleContainer}>
+          <Image source={require('./assets/images/image1.jpg')} style={styles.image} />
+          <Text style={styles.description}>When You Are Lost in the Darkness</Text>
+        </View>
+
+        {/* Dark Purple Background with Season Title */}
+        <View style={styles.darkPurpleContainer}>
+          <Text style={styles.seasonTitle}>Temporada 1, EP 1 - Trailer</Text>
+          <Text style={styles.episodeTitle}>When You Are Lost in the Darkness</Text>
+          <Text style={styles.episodeSummary}>Tudo começa em 2003 diferente do jogo, lá
+           o prólogo se passa em 2013, nele vamos conhecer a família Miller, Joel, o 
+           pai interpretado pelo incrível Pedro Pascal, Sarah, sua única filha 
+           interpretada pela até então pouco conhecida Nico Parker e Tommy, seu  irmão caçula interpretado por Gabriel Luna de Agents Of Shield. Eles 
+           vivem em Austin, Texas e podemos ver como eram suas vidas antes do surto do fungo Cordyceps. esse fungo realmente existe e é capaz de 
+           transformar insetos em zumbis! Confira o Trailer abaixo :
+
+</Text>
+
+          {/* Image with Play Button */}
+          <TouchableOpacity onPress={handlePlayButtonPress}>
+            <Image source={require('./assets/images/image3.jpg')} style={styles.playImage} />
+            <Image source={require('./assets/images/image.png')} style={styles.middleImage} />
+          </TouchableOpacity>
+        </View>
+
+        {/* Content with Dark Purple Background */}
+        <View style={styles.container}>
+          {/* Add your additional content here */}
         </View>
       </ScrollView>
-    </SafeAreaView>
+    </View>
   );
-}
-
-const styles = StyleSheet.create({
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-  },
-  highlight: {
-    fontWeight: '700',
-  },
-});
-
-export default App;
+};
+export default HomeScreen;
