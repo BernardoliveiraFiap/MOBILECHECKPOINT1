@@ -36,8 +36,7 @@ const HomeScreen = () => {
            interpretada pela até então pouco conhecida Nico Parker e Tommy, seu  irmão caçula interpretado por Gabriel Luna de Agents Of Shield. Eles 
            vivem em Austin, Texas e podemos ver como eram suas vidas antes do surto do fungo Cordyceps. esse fungo realmente existe e é capaz de 
            transformar insetos em zumbis! Confira o Trailer abaixo :
-
-</Text>
+          </Text>
 
           {/* Image with Play Button */}
           <TouchableOpacity onPress={handlePlayButtonPress}>
@@ -46,12 +45,14 @@ const HomeScreen = () => {
           </TouchableOpacity>
         </View>
 
-        {}
-        <View style={styles.container}>
-          {/* Add your additional content here */}
+        {/* Footer with Integrants' Names */}
+        <View style={styles.footer}>
+          <Text style={styles.footerText}>Enzo Oliveira 551356</Text>
+          <Text style={styles.footerText}>Matheus Colossal 99572</Text>
         </View>
       </ScrollView>
     </View>
   );
 };
+
 export default HomeScreen;
