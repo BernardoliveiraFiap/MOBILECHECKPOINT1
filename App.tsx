@@ -46,7 +46,7 @@ const HomeScreen = () => {
           </TouchableOpacity>
         </View>
 
-        {/* Content with Dark Purple Background */}
+        {}
         <View style={styles.container}>
           {/* Add your additional content here */}
         </View>
