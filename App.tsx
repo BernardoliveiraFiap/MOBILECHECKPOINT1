@@ -7,6 +7,7 @@ import {
   TouchableOpacity,
   Image,
   Linking,
+  SafeAreaView,
 } from 'react-native';
 import styles from './styles/styles';
 
@@ -16,7 +17,7 @@ const HomeScreen = () => {
   };
 
   return (
-    <View style={styles.darkBackground}>
+    <SafeAreaView style={styles.darkBackground}>
       <StatusBar backgroundColor="#6a0080" barStyle="light-content" />
 
       <ScrollView>
@@ -45,14 +46,13 @@ const HomeScreen = () => {
           </TouchableOpacity>
         </View>
 
-        {/* Footer with Integrants' Names */}
+        {/* FooterNames */}
         <View style={styles.footer}>
           <Text style={styles.footerText}>Enzo Oliveira 551356</Text>
           <Text style={styles.footerText}>Matheus Colossal 99572</Text>
         </View>
       </ScrollView>
-    </View>
+    </SafeAreaView>
   );
 };
-
 export default HomeScreen;
